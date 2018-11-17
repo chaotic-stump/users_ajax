@@ -1,8 +1,10 @@
+console.log('welcome out');
 
 $(document).ready(function(){
-  var baseUrl =
-  'http://devpoint-ajax-example-server.herokuapp.com/api/v1/users';
+  var baseUrl = 'http://json-server.devpointlabs.com/api/v1/users';
 
+  console.log('welcome in');
+  console.log(baseUrl);
   if (location.pathname === '/') {
     function getUsers() {
       $.ajax({
@@ -12,6 +14,7 @@ $(document).ready(function(){
       }).done(function(data) {
         var tbody = $('#users');
         tbody.children().remove();
+        debugger
         data.users.forEach(function(user) {
           var firstName = user.first_name ? user.first_name : '';
           var lastName = user.last_name ? user.last_name : '';
